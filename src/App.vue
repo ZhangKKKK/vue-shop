@@ -2,15 +2,14 @@
   <div id="app">
     <remoteJs href="http://at.alicdn.com/t/font_541383_0eztxry1hcx72e29.css"></remoteJs>
     <!--头部-->
-    <mt-header title="标题过长会隐藏">
+    <mt-header title="C·SHOP">
       <router-link to="/" slot="left">
         <mt-button icon="back">返回</mt-button>
       </router-link>
       <mt-button icon="more" slot="right"></mt-button>
     </mt-header>
-    <router-view></router-view>
     <!--内容-->
-    <router-view/>
+    <router-view></router-view>
     <!--底部-->
     <footer class="footer">
       <router-link to="/" class="iconfont icon-home"></router-link>

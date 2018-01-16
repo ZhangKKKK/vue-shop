@@ -1,7 +1,9 @@
 <template>
-  <ul>
+  <ul class="img-list">
     <li v-for="v in images">
-      <img v-lazy="v" :src="v.url" >
+      <img v-lazy="v.url">
+      <p>{{v.title}}</p>
+      <b>{{v.price}}</b>
     </li>
   </ul>
 </template>
@@ -11,21 +13,48 @@
     data(){
       return{
         images: [
-          '../static/images/image/1.webp',
-          '../static/images/image/2.webp',
-          '../static/images/image/3.webp',
-          '../static/images/image/4.webp',
-          '../static/images/image/5.webp',
-          '../static/images/image/6.webp',
-          '../static/images/image/7.webp',
-          '../static/images/image/8.webp',
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/1.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/2.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/3.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/4.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/5.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/6.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/7.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/8.webp'},
+
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/1.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/2.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/3.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/4.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/5.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/6.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/7.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/8.webp'},
+
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/1.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/2.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/3.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/4.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/5.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/6.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/7.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/8.webp'},
+
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/1.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/2.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/3.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/4.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/5.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/6.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/7.webp'},
+          {title: '飞利浦剃须刀',price:39.00,url: '../static/images/image/8.webp'}
         ]
       }
     }
   }
 </script>
 <style>
-  ul{
+  .img-list{
     width: 100%;
     position: absolute;
     top: 1rem;
@@ -35,10 +64,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    font-size: 0.24rem;
   }
   ul li{
-    width: 45%;
+    width: 40%;
     height: auto;
+    margin: 10px 0;
+  }
+  ul li b{
+    color: red;
   }
   ul li img{
     width: 100%;

@@ -1,20 +1,24 @@
 <template>
   <div class="main">
-    <ul class="shopList">
-      <li v-for="v in todos">
-        <img :src="v.src" @click="go(v.id)">
-        <span>{{v.title}}</span>
-      </li>
-    </ul>
+    <showList :todos="todos"></showList>
     <banner :bannerImg="bannerImg"></banner>
+
+    <div class="image-big">
+      <img :src="bigUrl" alt="">
+    </div>
+
+    <selfRun></selfRun>
   </div>
 </template>
 <script>
-  import banner from '@/components/banner'
+  import showList from '@/components/home/showList'
+  import banner from '@/components/home/banner'
+  import selfRun from '@/components/home/selfRun'
   export default {
     name: 'hello',
     data() {
       return {
+        bigUrl:'../../static/images/big.webp',
         todos: [
           {id: 1, title: '苏宁易购', src: "../static/images/shopList/1.webp"},
           {id: 2, title: '天猫超市', src: "../static/images/shopList/2.png"},
@@ -29,7 +33,7 @@
         ]
       }
     },
-    components:{banner}
+    components:{showList,banner,selfRun}
   }
 </script>
 <style>
@@ -42,28 +46,11 @@
     bottom: 1.1rem;
     background: #fff;
   }
-  .shopList{
+  .image-big{
     width: 100%;
-    height: 1.6rem;
-    padding: 0.12rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content:space-between;
+    height: 5rem;
   }
-  .shopList > li{
-    width: 1.4rem;
-    height: 100%;
-    line-height: 0;
-  }
-  .shopList > li img{
-    width: 0.8rem;
-    height: 0.8rem;
-  }
-  .shopList > li span{
-    display: inline-block;
+  .image-big img{
     width: 100%;
-    height: 0.36rem;
-    line-height: 0.36rem;
-    font-size: 0.2rem;
   }
 </style>
