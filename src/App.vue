@@ -1,31 +1,23 @@
 <template>
   <div id="app">
-    <remoteJs href="http://at.alicdn.com/t/font_541383_0eztxry1hcx72e29.css"></remoteJs>
-    <!--头部-->
-    <mt-header title="C·SHOP">
-      <router-link to="/" slot="left">
-        <mt-button icon="back">返回</mt-button>
-      </router-link>
-      <mt-button icon="more" slot="right"></mt-button>
-    </mt-header>
+    <remoteJs href="http://at.alicdn.com/t/font_541383_ry9ovc04u29ms4i.css"></remoteJs>
     <!--内容-->
     <router-view></router-view>
     <!--底部-->
-    <footer class="footer">
-      <router-link to="/" class="iconfont icon-home"></router-link>
-      <router-link to="/imgs" class="iconfont icon-img"></router-link>
-      <router-link to="/chat" class="iconfont icon-about"></router-link>
-      <router-link to="/contact" class="iconfont icon-contact"></router-link>
-    </footer>
+    <footer_tab :pathUrl="$route.path"></footer_tab>
   </div>
 </template>
 
 <script>
   import remoteJs from '@/components/remoteJs'
+  import footer_tab from '@/components/common/footer_tab'
 export default {
   name: 'app',
-  components:{
-    remoteJs
+  components:{remoteJs,footer_tab},
+  data(){
+    return{
+      shopCar:[]
+    }
   }
 }
 </script>
@@ -75,28 +67,5 @@ export default {
     position: absolute;
     left: 0;
     top:0.06rem;
-  }
-
-  .footer{
-    width: 100%;
-    height: 1rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    background: #fff;
-  }
-  .footer a{
-    display: block;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    line-height: 1rem;
-    font-size: 0.48rem;
-    color: #6d6d72;
-  }
-  .footer a.active{
-    color: red;
   }
 </style>
