@@ -4,7 +4,7 @@
 <script>
   export default {
     components: {
-      'remote-js': {
+      'remote-css': {
         render(createElement) {
           return createElement('link', { attrs: { type: 'text/css', href: this.href }});
         },

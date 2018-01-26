@@ -30,7 +30,7 @@
         console.log(v)
       },
       go(id){
-        this.$router.push({path:'/detail',params:{id:id}})
+        this.$router.push({name:'detail',params:{id:id}})
       }
     }
   }

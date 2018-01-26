@@ -1,0 +1,1 @@
+export const SET_COMNAME='SET_COMNAME'

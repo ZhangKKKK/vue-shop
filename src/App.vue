@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-    <remoteJs href="http://at.alicdn.com/t/font_541383_ry9ovc04u29ms4i.css"></remoteJs>
+    <remoteCss href="http://at.alicdn.com/t/font_541383_89d0kzh83r82gldi.css"></remoteCss>
     <!--内容-->
     <router-view></router-view>
-    <!--底部-->
-    <footer_tab :pathUrl="$route.path"></footer_tab>
   </div>
 </template>
 
 <script>
-  import remoteJs from '@/components/remoteJs'
-  import footer_tab from '@/components/common/footer_tab'
+  import remoteCss from '@/components/remeto'
 export default {
   name: 'app',
-  components:{remoteJs,footer_tab},
+  components:{remoteCss},
   data(){
     return{
       shopCar:[]
@@ -27,7 +24,12 @@ export default {
     margin: 0;
     padding: 0;
   }
+  html,body{
+    width: 100%;
+    height: 100%;
+  }
 #app {
+  height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

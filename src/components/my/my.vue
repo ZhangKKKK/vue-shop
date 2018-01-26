@@ -1,6 +1,7 @@
 <template>
   <div class="myperson">
     <mt-header fixed title="我的"></mt-header>
+    <div class="container">
     <div class="person-img">
       <div class="img">
         <!--<img :src="" alt="">-->
@@ -14,18 +15,35 @@
     </ul>
     <mt-button v-if="active" type="primary" size="small" @click.native="loginOut()">退出登录</mt-button>
     <mt-button v-else type="primary" size="small" @click.native="login()">登录</mt-button>
+    </div>
+    <!--底部-->
+    <footer_tab :pathUrl="$route.path"></footer_tab>
   </div>
 </template>
 <script>
+  import footer_tab from '@/components/common/footer_tab'
   import {MessageBox} from 'mint-ui'
+  import {mapGetters,mapMutations} from 'vuex'
   export default {
+    components:{footer_tab},
     data(){
       return{
         active:false,
         info:'森林迷了鹿'
       }
     },
+    computed:{
+      ...mapGetters([
+        'this.$store.state.comname'
+      ])
+    },
+    mounted(){
+      this.setComname('my')
+    },
     methods:{
+      ...mapMutations({
+        setComname: 'SET_COMNAME'
+      }),
       loginOut(){
         MessageBox.confirm('确定执行此操作?').then(action => {
           console.log(action)
@@ -38,13 +56,18 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .myperson{
     width: 100%;
-    position: fixed;
-    top:.8rem;
-    bottom: 1rem;
+    height: 100%;
+    padding-top: 0.8rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
     background: #f8f8f8;
+  }
+  .container{
+    height: 100%;
+    overflow-y: scroll;
   }
   .person-img{
     width: 100%;

@@ -43,11 +43,12 @@
     text-align: center;
   }
   .footer-item a{
-    display: inline-block;
+    display: block;
     width: 100%;
     height: 100%;
     color: #666;
     font-size: 0.4rem;
+    line-height: 1rem;
   }
   .footer > div.active a{
     color: #78d4f9;

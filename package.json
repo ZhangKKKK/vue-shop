@@ -12,15 +12,17 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.3.1",
     "mint-ui": "^2.2.13",
+    "mockjs": "^1.0.1-beta3",
     "swiper": "^4.1.0",
     "vee-validate": "^2.0.0-beta.17",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^3.1.0",
     "vue-concise-slider": "^2.4.3",
     "vue-i18n": "^7.4.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

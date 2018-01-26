@@ -6,7 +6,9 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './common.js'
-
+import Vuex from 'Vuex'
+import store from './store'
+Vue.use(Vuex);
 import VeeValidate from 'vee-validate';
 const config = {
   errorBagName: 'errors', // change if property conflicts
@@ -36,9 +38,7 @@ Vue.use(VeeValidate, config);
 Vue.use(MintUI);
 //引用自己的样式
 import '../static/css/common.css'
-
-
-
+import '../static/css/animate.css'
 
 
 
@@ -49,10 +49,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
-
-// 一个vue文件就是一个组件  硬性要求template作为根元素吗？ 为什么？
-//         exoprt default  啥意思     和exoprt 有什么区别
-//      name ：“about” 啥意思

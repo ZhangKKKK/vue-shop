@@ -10,16 +10,16 @@
       <div class="i-list">
         <div class="input">
           <span>用户名 </span>
-          <input type="text" name="username" v-validate="'required|email'" placeholder="请输入用户名">
+          <input type="text" name="username" placeholder="请输入用户名">
         </div>
-        <p class="error" v-show="errors.has('username')">{{ errors.first('username') }}</p>
+        <!--<p class="error" v-show="errors.has('username')">{{ errors.first('username') }}</p>-->
       </div>
       <div class="i-list">
         <div class="input">
           <span>密码 </span>
-          <input type="text" name="password" v-validate="'required|max:6'" placeholder="请输入密码">
+          <input type="text" name="password" placeholder="请输入密码">
         </div>
-        <p class="error" v-show="errors.has('password')">{{ errors.first('password') }}</p>
+        <!--<p class="error" v-show="errors.has('password')">{{ errors.first('password') }}</p>-->
       </div>
     </div>
     <mt-button type="primary" size="large" @click.native="sign()">Sign</mt-button>
@@ -27,17 +27,16 @@
 </template>
 <script>
   export default {
-    data(){
-      return{
-        username:'',
-        password:'',
-        passwordAgin:''
+    data() {
+      return {
+        username: '',
+        password: '',
+        passwordAgin: ''
       }
     },
-    methods:{
-      sign(){
+    methods: {
+      sign() {
         console.log(this.username)
-        console.log(this.errors.has('username'))
       }
     }
   }
@@ -50,9 +49,9 @@
   }
   .sign{
     width: 100%;
-    position: absolute;
-    top:0.8rem;
-    bottom: 1rem;
+    height: 100%;
+    padding-top: 0.8rem;
+    box-sizing: border-box;
     background: #f8f8f8;
   }
   .i-list{
