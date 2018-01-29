@@ -23,7 +23,7 @@
     <mt-popup
       v-model="popupVisible"
       position="bottom">
-      <car></car>
+      <car :info="shopData" @close="close"></car>
     </mt-popup>
   </div>
 </template>
@@ -43,15 +43,10 @@
         }
       }
     },
-    mounted(){
-      axios.get('http://192.168.2.127/Vue/shop/src/components/detail/detail.php').then((res)=>{
-        console.log(eval(eval(res).data))
-        this.shopData=eval(eval(res).data)
-      }).catch((rej)=>{
-        this.shopData=this.shopData
-      })
-    },
     methods:{
+        close(){
+            this.popupVisible=false
+        },
       go(){
         this.$router.push('/shopCar')
       },
@@ -61,7 +56,7 @@
     }
   }
 </script>
-<style scope>
+<style scoped>
   .detail{
     width: 100%;
     height: 100%;

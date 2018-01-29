@@ -47,28 +47,15 @@
       }
     },
     computed:{
-      ...mapGetters([
-        'this.$store.state.comname'
-      ])
+
     },
     mounted(){
       this.mainarea=true;
-      if(this.$store.state.comname == 'category' || 'my') {
-//        进
-        this.slidename = 'bounceOutLeft';
-      } else {
-//        出
-        this.slidename = 'bounceOutRight'
-      }
-      this.setComname('home')
     },
     methods:{
       share(){
         this.popupVisible=true
       },
-      ...mapMutations({
-        setComname: 'SET_COMNAME'
-      })
     },
     components:{banner,floor_num,share,footer_tab}
   }

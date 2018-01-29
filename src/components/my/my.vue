@@ -23,7 +23,6 @@
 <script>
   import footer_tab from '@/components/common/footer_tab'
   import {MessageBox} from 'mint-ui'
-  import {mapGetters,mapMutations} from 'vuex'
   export default {
     components:{footer_tab},
     data(){
@@ -32,18 +31,7 @@
         info:'森林迷了鹿'
       }
     },
-    computed:{
-      ...mapGetters([
-        'this.$store.state.comname'
-      ])
-    },
-    mounted(){
-      this.setComname('my')
-    },
     methods:{
-      ...mapMutations({
-        setComname: 'SET_COMNAME'
-      }),
       loginOut(){
         MessageBox.confirm('确定执行此操作?').then(action => {
           console.log(action)

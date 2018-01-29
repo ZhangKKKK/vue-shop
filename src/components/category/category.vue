@@ -22,7 +22,6 @@
 </template>
 <script>
   import footer_tab from '@/components/common/footer_tab'
-  import {mapMutations,mapGetters} from 'vuex'
   export default {
     components:{footer_tab},
     data(){
@@ -46,21 +45,11 @@
         ]
       }
     },
-    computed:{
-      ...mapGetters([
-        'this.$store.state.comname'
-      ])
-    },
-    mounted(){
-      this.setComname('category')
-    },
+
     methods:{
       active(type){
         this.type=type
-      },
-      ...mapMutations({
-        setComname: 'SET_COMNAME'
-      })
+      }
     }
   }
 </script>
