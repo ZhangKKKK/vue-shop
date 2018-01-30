@@ -37,9 +37,9 @@
       return{
         popupVisible:false,
         shopData:{
-          title:'好吃的',
+          title:'长沙猪肉脯',
           price:19,
-          url:'./static/images/shopImgs/shop1.jpg'
+          url:'./static/images/shopImgs/2.jpg'
         }
       }
     },

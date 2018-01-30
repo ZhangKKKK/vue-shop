@@ -4,37 +4,48 @@
     <div class="container">
     <div class="person-img">
       <div class="img">
-        <!--<img :src="" alt="">-->
+        <img :src="headImg" alt="">
       </div>
-      <div class="info">{{info}}</div>
+      <div class="info" v-if="active">{{this.$store.state.loginInfo.username}}</div>
+      <div class="info" v-else>[未登录]</div>
     </div>
     <ul class="item">
       <li>个人信息</li>
       <li>我的订单</li>
       <li>我的地址</li>
     </ul>
-    <mt-button v-if="active" type="primary" size="small" @click.native="loginOut()">退出登录</mt-button>
-    <mt-button v-else type="primary" size="small" @click.native="login()">登录</mt-button>
-    </div>
+        <div class="loginBtn">
+            <mt-button v-if="active" type="primary" size="large" @click.native="loginOut()">退出登录</mt-button>
+            <mt-button v-else type="primary" size="large" @click.native="login()">登录</mt-button>
+        </div>
+     </div>
     <!--底部-->
     <footer_tab :pathUrl="$route.path"></footer_tab>
   </div>
 </template>
 <script>
+    import {mapGetters,mapMutations} from 'vuex'
   import footer_tab from '@/components/common/footer_tab'
   import {MessageBox} from 'mint-ui'
   export default {
     components:{footer_tab},
     data(){
       return{
-        active:false,
-        info:'森林迷了鹿'
+          active:this.$store.state.loginInfo.username.length > 0 ? true : false,
+          headImg:this.$store.state.loginInfo.username.length > 0 ?'./static/images/head.jpg':'./static/images/falsehead.jpg'
       }
     },
+      computed:{
+          ...mapGetters(['loginInfo'])
+      },
     methods:{
+        ...mapMutations({
+            setLogin: 'SET_LOGIN'
+        }),
       loginOut(){
         MessageBox.confirm('确定执行此操作?').then(action => {
-          console.log(action)
+          this.setLogin({username:'',password:''});
+          console.log(action);
           this.$router.push('login')
         }).catch(error=>{console.log(error)});
       },
@@ -73,8 +84,11 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    background: red;
     border-radius: 50%;
+      overflow: hidden;
+  }
+  .person-img .img img{
+      width: 100%;
   }
   .person-img .info{
     width: 100%;
@@ -100,5 +114,14 @@
     font-size: 0.28rem;
     text-align: left;
     margin-bottom: 0.2rem;
+  }
+
+    .loginBtn{
+        padding: 0 0.24rem;
+        box-sizing: border-box;
+    }
+  .mint-button{
+      font-size: 0.32rem;
+      letter-spacing: 0.06rem;
   }
 </style>

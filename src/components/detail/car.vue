@@ -14,10 +14,11 @@
 
           </div>
       </div>
-      <div class="footer" @click="addShop()">加入购物车</div>
+      <div class="foote" @click="addShop()">添加购物车</div>
   </div>
 </template>
 <script>
+    import {mapGetters,mapMutations} from 'vuex'
   export default {
       props:['info'],
     data(){
@@ -25,9 +26,18 @@
           num:1
       }
     },
+      computed:{
+          ...mapGetters(['carts'])
+      },
       methods:{
+          ...mapMutations({
+              setCarts:'SET_CARTS'
+          }),
         addShop(){
-
+            this.info.num=this.num;
+            this.$store.state.carts.push(this.info);
+            this.setCarts(this.$store.state.carts);
+            this.$emit('close')
         },
         close(){
             this.$emit('close')
@@ -127,7 +137,7 @@
       text-align: center;
   }
 
-    .footer{
+    .foote{
         width: 100%;
         height: 0.98rem;
         background: #26a2ff;

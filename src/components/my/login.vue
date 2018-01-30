@@ -18,13 +18,29 @@
   </div>
 </template>
 <script>
+    import {mapGetters,mapMutations} from 'vuex'
   export default {
     data(){
       return{
-        username:'',
-        password:''
+        username:this.$store.state.loginInfo.username,
+        password:this.$store.state.loginInfo.password
       }
-    }
+    },
+      computed:{
+          ...mapGetters(['loginInfo'])
+      },
+      methods:{
+          ...mapMutations({
+              setLogin: 'SET_LOGIN'
+          }),
+          login(){
+              this.setLogin({
+                  username:this.username,
+                  password:this.password
+              });
+              this.$router.push('my')
+          }
+      }
   }
 </script>
 <style>
@@ -34,6 +50,12 @@
     padding-top: 0.8rem;
     box-sizing: border-box;
     background: #f8f8f8;
+  }
+  .mint-cell-wrapper{
+      font-size: 0.24rem;
+  }
+  .mint-button{
+      font-size: 0.32rem;
   }
   .mint-button--large{
     display: inline-block;

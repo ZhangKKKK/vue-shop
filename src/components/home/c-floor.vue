@@ -19,15 +19,24 @@
   </div>
 </template>
 <script>
+    import {mapGetters,mapMutations} from 'vuex'
   export default {
     name: 'floor',
     props:['lists'],
     data(){
       return{}
     },
+      computed:{
+          ...mapGetters(['carts'])
+      },
     methods:{
+        ...mapMutations({
+            setCarts: 'SET_CARTS'
+        }),
       addShopCar(v){
-        console.log(v)
+        let carts = this.$store.state.carts;
+        carts.push(v);
+        this.setCarts(carts);
       },
       go(id){
         this.$router.push({name:'detail',params:{id:id}})
