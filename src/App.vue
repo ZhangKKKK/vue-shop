@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <remoteCss href="http://at.alicdn.com/t/font_541383_f33w1gixz8v9529.css"></remoteCss>
+    <remoteCss href="https://at.alicdn.com/t/font_541383_f33w1gixz8v9529.css"></remoteCss>
     <!--内容-->
     <router-view></router-view>
   </div>
